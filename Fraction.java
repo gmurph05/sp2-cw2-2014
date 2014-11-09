@@ -121,4 +121,18 @@ public class Fraction {
         int denom = this.getDenominator() * other.getDenominator();
         return new Fraction(num, denom);
 	}
+
+
+	public Fraction subtract(Fraction other) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Fraction negate() {
+		// TODO Auto-generated method stub
+		int num = this.getNumerator() * -1;
+	    int denom = this.getDenominator();
+	    return new Fraction(num,denom);
+
+	}
 }

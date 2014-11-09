@@ -35,6 +35,13 @@ public class FractionTest {
 		assertEquals("Multiply failed!", expectedOutput, actualOutput);
 	}
 	
+	// test divide
+		@Test
+		public void testDivide(){
+			
+			
+		}
+	
 	// test equals
 	@Test
 	public void testEquals(){
@@ -59,20 +66,28 @@ public class FractionTest {
 	// test subtract
 	@Test
 	public void testSubtract(){
-		
-		
-	}
-	
-	// test divide
-	@Test
-	public void testDivide(){
-		
-		
+		Fraction i = new Fraction(1,3);
+		Fraction j = new Fraction(2,3);
+		Fraction k = new Fraction(2,6);
+		Fraction expectedOutput = i;
+		Fraction actualOutput = j.subtract(k);
+		assertEquals("Subtraction failed", expectedOutput, actualOutput);
 	}
 	
 	// test absolute value
 	@Test
 	public void testAbsValue(){
+		
+	}
+	
+	// test negate
+	@Test
+	public void testNegate(){
+		Fraction x = new Fraction(2,-6);
+		Fraction y = new Fraction(2,6);
+		Fraction expectedOutput = y;
+		Fraction actualOutput = x.negate();
+		assertEquals("Negate failed", expectedOutput, actualOutput);
 		
 	}
 	
