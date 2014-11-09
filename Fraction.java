@@ -7,9 +7,9 @@ public class Fraction {
 	
 	public Fraction(int num, int denom) {
 		if (denom == 0) {
-			System.out.println("Invalid fraction with denominator 0");
+			//System.out.println("Invalid fraction with denominator 0");
 			// this should use exceptions
-			throw new IllegalArgumentException("Argument 'divisor' is 0");
+			throw new IllegalArgumentException("Invalid fraction with denominator 0");
             //return;
 		}
 		
@@ -105,12 +105,12 @@ public class Fraction {
 	}
 	
 	//Greatest Common Divisor
-	/*private int myGcd(int a, int b) {
+	private int myGcd(int a, int b) {
         while (b != 0) {
             int t = b;
             b = a % b;
             a = t;
         }
         return a;
-    }*/
+    }
 }
