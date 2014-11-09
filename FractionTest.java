@@ -48,9 +48,9 @@ public class FractionTest {
 	// test add
 	@Test
 	public void testAdd(){
-		Fraction i = new Fraction(9,10);
-		Fraction j = new Fraction(1,2);
-		Fraction k = new Fraction(3,5);
+		Fraction i = new Fraction(2,3);
+		Fraction j = new Fraction(1,3);
+		Fraction k = new Fraction(2,6);
 		Fraction expectedOutput = i;
 		Fraction actualOutput = j.add(k);
 		assertEquals("Addition failed", expectedOutput, actualOutput);

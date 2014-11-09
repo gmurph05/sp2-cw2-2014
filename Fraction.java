@@ -12,11 +12,9 @@ public class Fraction {
 			throw new IllegalArgumentException("Invalid fraction with denominator 0");
             //return;
 		}
-		else{
-			numerator = num;
-			denominator = denom;
-		}
-		
+		int gcd = myGcd(num, denom);
+        setNumerator(num / gcd);
+        setDenominator(denom / gcd);
 	}
 
 
@@ -116,12 +114,11 @@ public class Fraction {
         }
         return a;
     }
-
-
-	public Fraction add(Fraction k) {
+	
+	public Fraction add(Fraction other) {
 		// TODO Auto-generated method stub
-		int num = this.getNumerator() + k.getNumerator();
-		int denom = this.getDenominator() + k.getDenominator();
-		return new Fraction(num, denom);
+		int num = this.getNumerator() * other.getDenominator() + other.getNumerator()*this.getDenominator();
+        int denom = this.getDenominator() * other.getDenominator();
+        return new Fraction(num, denom);
 	}
 }
