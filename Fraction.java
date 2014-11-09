@@ -12,6 +12,10 @@ public class Fraction {
 			throw new IllegalArgumentException("Invalid fraction with denominator 0");
             //return;
 		}
+		else{
+			numerator = num;
+			denominator = denom;
+		}
 		
 	}
 
@@ -62,8 +66,7 @@ public class Fraction {
 		final int prime = 31;
 		//int result = 1;
 		int result = numerator;
-		//result = prime * result + denominator;
-		result = prime * result + numerator;
+		result = prime * result + denominator;
 		return result;
 	}
 
@@ -79,25 +82,25 @@ public class Fraction {
 		if (obj == null) {
 			return false;
 		}
-		if (getClass() != obj.getClass()) {
+		/*if (getClass() != obj.getClass()) {
 			return false;
-		}
+		}*/
+		
 		Fraction other = (Fraction) obj;
-		//if (denominator != other.denominator) {
-		//	return false;
+
 		if (getDenominator() != other.getDenominator()) { 
 			return false;
 		}
-		//if (numerator != other.numerator) {
-				//	return false;		
+	
 		if (getNumerator() != other.getNumerator()){
 			return false;
 		}
 		return true;
 	}
 
-
-	public Object multiply(Fraction other) {
+	
+	// Multiply method to multiply fractions
+	public Fraction multiply(Fraction other) {
 		// TODO Auto-generated method stub
 		int num = this.getNumerator() * other.getNumerator();
         int denom = this.getDenominator() * other.getDenominator();
@@ -113,4 +116,12 @@ public class Fraction {
         }
         return a;
     }
+
+
+	public Fraction add(Fraction k) {
+		// TODO Auto-generated method stub
+		int num = this.getNumerator() + k.getNumerator();
+		int denom = this.getDenominator() + k.getDenominator();
+		return new Fraction(num, denom);
+	}
 }

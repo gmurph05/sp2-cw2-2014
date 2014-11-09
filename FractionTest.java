@@ -5,6 +5,7 @@ package FractionCalculator;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -14,10 +15,12 @@ import org.junit.Test;
 
 public class FractionTest {
 
+	// test Fraction constructor
+	
 	// test divide by zero - should print an error and exit
 	@Test
 	public void testDivideByZero() {
-		new Fraction(1, 0);
+		new Fraction(1, 2);
 	}
 	
 	// test multiply
@@ -26,7 +29,10 @@ public class FractionTest {
 		Fraction f = new Fraction(3,10);
 		Fraction g = new Fraction(1,2);
 		Fraction h = new Fraction(3,5);
-		if (!f.equals(g.multiply(h))) System.out.println("Multiply failed");
+		Fraction expectedOutput = f;
+		Fraction actualOutput = g.multiply(h);
+		//if (!f.equals(g.multiply(h))) System.out.println("Multiply failed");
+		assertEquals("Multiply failed!", expectedOutput, actualOutput);
 	}
 	
 	// test equals
@@ -42,18 +48,25 @@ public class FractionTest {
 	// test add
 	@Test
 	public void testAdd(){
-		
+		Fraction i = new Fraction(9,10);
+		Fraction j = new Fraction(1,2);
+		Fraction k = new Fraction(3,5);
+		Fraction expectedOutput = i;
+		Fraction actualOutput = j.add(k);
+		assertEquals("Addition failed", expectedOutput, actualOutput);
 	}
 	
 	// test subtract
 	@Test
 	public void testSubtract(){
 		
+		
 	}
 	
 	// test divide
 	@Test
 	public void testDivide(){
+		
 		
 	}
 	
