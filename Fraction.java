@@ -115,33 +115,53 @@ public class Fraction {
         return a;
     }
 	
+	// Start of add method
 	public Fraction add(Fraction other) {
 		// TODO Auto-generated method stub
 		int num = this.getNumerator() * other.getDenominator() + other.getNumerator()*this.getDenominator();
         int denom = this.getDenominator() * other.getDenominator();
         return new Fraction(num, denom);
-	}
+	}//end of add method
 
-
+	
+	// start of subtract method
 	public Fraction subtract(Fraction other) {
 		// TODO Auto-generated method stub
-		//return null;
-		/*Fraction a = other;
-		return a.negate().add(other);*/
-		int num = this.getNumerator() * other.getDenominator() - other.getNumerator() * this.getDenominator();
-	    int denom = denominator * other.getDenominator();
-	    Fraction result = new Fraction(num, denom);
-	    return result;
-	}
+        Fraction x = this.add(other.negate());
+		return x;
+	}// end of subtract method
 
-	public int negate(int x) {
+	// start of negate method - negates the sign of any fraction
+	public Fraction negate() {
 		// TODO Auto-generated method stub
-		int input = x * -1;
-	    return input;
-
+		int num = this.getNumerator();
+		int denom = this.getDenominator();
+		
+		if(num < 0){
+			if(denom < 0){
+				denom = denom * -1;
+				return new Fraction(num,denom);
+			}
+			num = num * -1;
+			return new Fraction(num,denom);
+		}
+		if(denom < 0){
+			denom = denom * -1;
+			return new Fraction(num,denom);
+		}
+		num = num * -1;
+	    return new Fraction(num,denom);
+	    
+	}// end of negate method
+	
+	// Start of reciprocal method to invert a fraction
+	public Fraction reciprocal(){
+		Fraction x = new Fraction(this.getDenominator(),this.getNumerator());
+		return x;
 	}
 
-	public Fraction absValue() {
+	// start of absValue method to return the absolute value of a fraction
+	/*public Fraction absValue() {
 		// TODO Auto-generated method stub
 		int num = numerator;
 		int denom = denominator;
@@ -160,5 +180,12 @@ public class Fraction {
 	    }
 	    
 	    return new Fraction(num,denom);
+	}// end of absValue method
+*/
+
+	public Fraction divide(Fraction other) {
+		// TODO Auto-generated method stub
+		Fraction x = this.multiply(other.reciprocal());
+		return x;
 	}
 }

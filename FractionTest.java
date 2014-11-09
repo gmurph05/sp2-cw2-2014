@@ -36,11 +36,16 @@ public class FractionTest {
 	}
 	
 	// test divide
-		@Test
-		public void testDivide(){
-			
-			
-		}
+	@Test
+	public void testDivide(){
+		Fraction f = new Fraction(7,6);
+		Fraction g = new Fraction(1,2);
+		Fraction h = new Fraction(3,7);
+		Fraction expectedOutput = f;
+		Fraction actualOutput = g.divide(h);
+		assertEquals("Divide failed!", expectedOutput, actualOutput);
+		
+	} // end of divide test
 	
 	// test equals
 	@Test
@@ -50,7 +55,7 @@ public class FractionTest {
 		test(new Fraction(-1, 2),new Fraction(1, -2),"error test 3");
 		test(new Fraction(-1, -2),new Fraction(1, 2),"error test 4");
 		test(new Fraction(4, -8),new Fraction(1, 2),"error test 5");
-	}
+	} // end of equals test
 	
 	// test add
 	@Test
@@ -61,20 +66,30 @@ public class FractionTest {
 		Fraction expectedOutput = i;
 		Fraction actualOutput = j.add(k);
 		assertEquals("Addition failed", expectedOutput, actualOutput);
-	}
+	} // end of add test
+	
+	// test negate
+	@Test
+	public void testNegate(){
+		Fraction i = new Fraction(-2,3);
+		Fraction j = new Fraction(-2,-3);
+		Fraction expectedOutput = i;
+		Fraction actualOutput = j.negate();
+		assertEquals("Addition failed", expectedOutput, actualOutput);
+	} // end of negate test
 	
 	// test subtract
 	@Test
 	public void testSubtract(){
-		Fraction i = new Fraction(1,3);
-		Fraction j = new Fraction(2,3);
-		Fraction k = new Fraction(2,6);
+		Fraction i = new Fraction(4,8);
+		Fraction j = new Fraction(6,8);
+		Fraction k = new Fraction(2,8);
 		Fraction expectedOutput = i;
 		Fraction actualOutput = j.subtract(k);
 		assertEquals("Subtraction failed", expectedOutput, actualOutput);
 	}
 	
-	// test absolute value
+	/*// test absolute value
 	@Test
 	public void testAbsValue(){
 		Fraction x = new Fraction(-2,6);
@@ -82,9 +97,8 @@ public class FractionTest {
 		Fraction expectedOutput = y;
 		Fraction actualOutput = x.absValue();
 		assertEquals("Absolute Value failed", expectedOutput, actualOutput);
-		
-	}
-	
+	} // end of absolute value test
+*/	
 
 		static void test(Fraction f1, Fraction f2, String msg){
     	if (! f1.equals(f2))
