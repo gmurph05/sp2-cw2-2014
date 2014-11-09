@@ -77,21 +77,15 @@ public class FractionTest {
 	// test absolute value
 	@Test
 	public void testAbsValue(){
-		
-	}
-	
-	// test negate
-	@Test
-	public void testNegate(){
-		Fraction x = new Fraction(2,-6);
+		Fraction x = new Fraction(-2,6);
 		Fraction y = new Fraction(2,6);
 		Fraction expectedOutput = y;
-		Fraction actualOutput = x.negate();
-		assertEquals("Negate failed", expectedOutput, actualOutput);
+		Fraction actualOutput = x.absValue();
+		assertEquals("Absolute Value failed", expectedOutput, actualOutput);
 		
 	}
 	
-	
+
 		static void test(Fraction f1, Fraction f2, String msg){
     	if (! f1.equals(f2))
 		System.out.println(msg);

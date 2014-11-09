@@ -125,14 +125,40 @@ public class Fraction {
 
 	public Fraction subtract(Fraction other) {
 		// TODO Auto-generated method stub
-		return null;
+		//return null;
+		/*Fraction a = other;
+		return a.negate().add(other);*/
+		int num = this.getNumerator() * other.getDenominator() - other.getNumerator() * this.getDenominator();
+	    int denom = denominator * other.getDenominator();
+	    Fraction result = new Fraction(num, denom);
+	    return result;
 	}
 
-	public Fraction negate() {
+	public int negate(int x) {
 		// TODO Auto-generated method stub
-		int num = this.getNumerator() * -1;
-	    int denom = this.getDenominator();
-	    return new Fraction(num,denom);
+		int input = x * -1;
+	    return input;
 
+	}
+
+	public Fraction absValue() {
+		// TODO Auto-generated method stub
+		int num = numerator;
+		int denom = denominator;
+		if(this.getNumerator() < 0){
+			num = negate(this.getNumerator());
+		}
+		else{
+			num = this.getNumerator();
+		}
+			
+	    if(this.getDenominator() < 0){
+	    	denom = negate(this.getDenominator());
+	    }
+	    else{
+	    	denom = this.getDenominator();
+	    }
+	    
+	    return new Fraction(num,denom);
 	}
 }
