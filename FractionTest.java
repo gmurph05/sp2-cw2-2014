@@ -89,16 +89,16 @@ public class FractionTest {
 		assertEquals("Subtraction failed", expectedOutput, actualOutput);
 	}
 	
-	/*// test absolute value
+	// test absolute value
 	@Test
 	public void testAbsValue(){
-		Fraction x = new Fraction(-2,6);
+		Fraction x = new Fraction(-2,-6);
 		Fraction y = new Fraction(2,6);
 		Fraction expectedOutput = y;
 		Fraction actualOutput = x.absValue();
 		assertEquals("Absolute Value failed", expectedOutput, actualOutput);
 	} // end of absolute value test
-*/	
+	
 
 		static void test(Fraction f1, Fraction f2, String msg){
     	if (! f1.equals(f2))

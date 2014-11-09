@@ -161,27 +161,20 @@ public class Fraction {
 	}
 
 	// start of absValue method to return the absolute value of a fraction
-	/*public Fraction absValue() {
+	public Fraction absValue() {
 		// TODO Auto-generated method stub
-		int num = numerator;
-		int denom = denominator;
-		if(this.getNumerator() < 0){
-			num = negate(this.getNumerator());
-		}
-		else{
-			num = this.getNumerator();
-		}
-			
-	    if(this.getDenominator() < 0){
-	    	denom = negate(this.getDenominator());
-	    }
-	    else{
-	    	denom = this.getDenominator();
-	    }
-	    
+		int num = this.getNumerator();
+		int denom = this.getDenominator();
+		
+		if(num < 0){
+			num = num * -1;
+		}		
+	    if(denom < 0){
+	    	denom = denom * -1;
+	    }	    
 	    return new Fraction(num,denom);
 	}// end of absValue method
-*/
+
 
 	public Fraction divide(Fraction other) {
 		// TODO Auto-generated method stub
