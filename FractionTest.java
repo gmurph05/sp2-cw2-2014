@@ -23,6 +23,17 @@ public class FractionTest {
 		new Fraction(1, 2);
 	}
 	
+	// test toString method
+	@Test
+	public void testToString(){
+		Fraction i = new Fraction(2,3);
+		String j = i.toString();
+		String expectedOutput = j;
+		String actualOutput = i.toString();
+		System.out.println("Fraction is " + actualOutput);
+		assertEquals("Multiply failed!", expectedOutput, actualOutput);
+	} // end of toString test
+	
 	// test multiply
 	@Test
 	public void testMultiply(){
@@ -33,7 +44,7 @@ public class FractionTest {
 		Fraction actualOutput = g.multiply(h);
 		//if (!f.equals(g.multiply(h))) System.out.println("Multiply failed");
 		assertEquals("Multiply failed!", expectedOutput, actualOutput);
-	}
+	} // end of multiply test
 	
 	// test divide
 	@Test

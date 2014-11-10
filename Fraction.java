@@ -4,9 +4,11 @@ public class Fraction {
 	
     private int numerator;
     private int denominator;
+	public String expression;
+	public char operator;
 	
 	public Fraction(int num, int denom) {
-		if (denom == 0) {
+		if (num == 0 || denom == 0) {
 			//System.out.println("Invalid fraction with denominator 0");
 			// this should use exceptions
 			throw new IllegalArgumentException("Invalid fraction with denominator 0");
@@ -16,6 +18,10 @@ public class Fraction {
         setNumerator(num / gcd);
         setDenominator(denom / gcd);
 	}
+	
+	public Fraction(){
+		
+	}
 
 
 	/* (non-Javadoc)
@@ -23,8 +29,11 @@ public class Fraction {
 	 */
 	@Override
 	public String toString() {
-        return "" + getNumerator() + '/' + getDenominator();
-    }
+        if(this.getDenominator() == 1){
+        	return "" + getNumerator();
+        }
+		return "" + getNumerator() + '/' + getDenominator();
+    } // end of toString method
 
 	/**
 	 * @return the numerator
@@ -103,7 +112,7 @@ public class Fraction {
 		int num = this.getNumerator() * other.getNumerator();
         int denom = this.getDenominator() * other.getDenominator();
         return new Fraction(num, denom);
-	}
+	} // end of multiply method
 	
 	//Greatest Common Divisor
 	private int myGcd(int a, int b) {
@@ -113,7 +122,7 @@ public class Fraction {
             a = t;
         }
         return a;
-    }
+    } // end of myGcd method
 	
 	// Start of add method
 	public Fraction add(Fraction other) {
