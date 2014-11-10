@@ -5,7 +5,6 @@ public class Fraction {
     private int numerator;
     private int denominator;
 	public String expression;
-	public char operator;
 	
 	public Fraction(int num, int denom) {
 		if (num == 0 || denom == 0) {

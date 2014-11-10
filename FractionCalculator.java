@@ -1,5 +1,4 @@
 package FractionCalculator;
-import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -12,10 +11,10 @@ public class FractionCalculator{
 	public FractionCalculator() {
 		// TODO Auto-generated constructor stub
 		printStartMenu();
-	}
+	} // end of constructor
 
 	// start menu to prompt and instruct the user
-	public void printStartMenu(){
+	public static void printStartMenu(){
 		System.out.println("FRACTION CALCULATOR");
 		System.out.println("-------------------------------");
 		System.out.println("1. Add: + ");
@@ -32,9 +31,9 @@ public class FractionCalculator{
 		String expression = in.nextLine();
 		evaluate(expression);
 		in.close();
-	}
+	} // end of printStartMenu method
 	
-	public Fraction evaluate(String expression) {
+	public static Fraction evaluate(String expression) {
 		// TODO Auto-generated method stub
 		Fraction answer = new Fraction(1,1);
 		boolean q = false;
@@ -47,7 +46,8 @@ public class FractionCalculator{
 		
 		while(!q || !Q || !quit){
 			String[] parts = expression.split(" ");
-			int count = 0;
+			Fraction f1 = new Fraction(1,1);
+			Fraction f2 = new Fraction(1,1);
 			
 			if(parts.length % 2 != 0){
 				for(int i = 0; i < parts.length; i++){
@@ -57,9 +57,14 @@ public class FractionCalculator{
 						String d1 = subPart1[1];
 						Operand.setNumerator(Integer.parseInt(n1));
 						Operand.setDenominator(Integer.parseInt(d1));
-						Fraction f1 = new Fraction(Operand.getNumerator(),Operand.getDenominator());
-						count++;
+						f1 = new Fraction(Operand.getNumerator(),Operand.getDenominator());
+					}else{
+						Operand.setNumerator(Integer.parseInt(parts[i]));
+						Operand.setDenominator(1);
+						f1 = new Fraction(Operand.getNumerator(),Operand.getDenominator());
 					}
+					
+					operator = parts[i+1];
 					
 					if(parts[i+2].length() > 1 && i+2 < parts.length){
 						String[] subPart2 = parts[i].split("/");
@@ -67,32 +72,30 @@ public class FractionCalculator{
 						String d2 = subPart2[1];
 						Operand.setNumerator(Integer.parseInt(n2));
 						Operand.setDenominator(Integer.parseInt(d2));
-						Fraction f2 = new Fraction(Operand.getNumerator(),Operand.getDenominator());
-						count++;
+						f2 = new Fraction(Operand.getNumerator(),Operand.getDenominator());
+					}else{
+						Operand.setNumerator(Integer.parseInt(parts[i+2]));
+						Operand.setDenominator(1);
+						f2 = new Fraction(Operand.getNumerator(),Operand.getDenominator());
 					}
-				operator = expression.substring(expression.indexOf(" ")+1);
+					
+					switch(operator){
+						case "*":	answer = f1.multiply(f2);
+						case "/":	answer = f1.divide(f2);
+						case "+": 	answer = f1.add(f2);
+						case "-":	answer = f1.subtract(f2);
+						default:	System.out.println("Invalid.");
+				}
+				
 	
 				}
 			
 				if((q || Q || quit)){
 					throw new IllegalArgumentException("operation terminated!");
 				}
-				return answer;
+				
 			}
 		}
+		return answer;
 	}
-	
-	public void operator(String op){
-		Fraction f1 = 
-		String result = op;
-		switch(op){
-			case "*":	multiply();
-			case "/":	divide();
-			case "+": 	add();
-			case "-":	subtract;
-			default:	System.out.println("Invalid.");
-		}
-	}
-	
-
 }
